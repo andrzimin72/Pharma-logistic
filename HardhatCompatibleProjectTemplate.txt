@@ -1,0 +1,28 @@
+pharma-logistic-hardhat/
+├── contracts/
+│   ├── RawMaterial.sol
+│   ├── Medicine.sol
+│   ├── MedicineW_D.sol
+│   ├── MedicineD_C.sol
+│   ├── Transactions.sol
+│   ├── Supplier.sol
+│   ├── Manufacturer.sol
+│   ├── Wholesaler.sol
+│   ├── Distributor.sol
+│   ├── Customer.sol
+│   └── Transporter.sol
+│
+├── test/
+│   ├── test_raw_material.js
+│   ├── test_medicine.js
+│   ├── test_supply_chain.js
+│   └── test_integration.js
+│
+├── scripts/
+│   ├── deploy.js
+│   └── utils.js
+│
+├── hardhat.config.js
+├── .env
+├── package.json
+└── README.md
