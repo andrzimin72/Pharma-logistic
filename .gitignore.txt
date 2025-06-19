@@ -1,0 +1,108 @@
+# ----------------------------
+# General
+# ----------------------------
+*.log
+*.DS_Store
+*.tmp
+*.temp
+*.swp
+*~
+.\#*
+# ----------------------------
+# Node.js / npm
+# ----------------------------
+node_modules/
+npm-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+build/contracts/*.json
+# ----------------------------
+# Hardhat
+# ----------------------------
+cache/
+artifacts/
+hardhat.config.js
+.env
+# ----------------------------
+# Truffle
+# ----------------------------
+build/
+migrations/
+truffle-config.js
+test/
+# ----------------------------
+# Rasa Chatbot
+# ----------------------------
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.db
+*.sqlite3
+# ----------------------------
+# Flutter App
+# ----------------------------
+/build/
+/flutter_*.sh
+/test/widget_test.dart
+.DS_Store
+*.iml
+/.idea
+/.vscode
+/pubspec.lock
+# ----------------------------
+# IDEs
+# ----------------------------
+# VS Code
+.vscode/
+# JetBrains
+.idea/
+*.iml
+*.iws
+# ----------------------------
+# OS generated
+# ----------------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+# ----------------------------
+# Environment Variables
+# ----------------------------
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.stage
+# ----------------------------
+# Firebase / Firestore
+# ----------------------------
+/firebaseConfig.js
+/firestoreData/
+# ----------------------------
+# Python
+# ----------------------------
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+# ----------------------------
+# Docker
+# ----------------------------
+docker-compose.override.yml
+.env.docker
+# ----------------------------
+# Editor directories and files
+# ----------------------------
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
