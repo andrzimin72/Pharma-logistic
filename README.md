@@ -1,4 +1,4 @@
-# Pharma-logistic
+# Pharma logistic
 The pharma logistic system offers a decentralized, tamper-proof, and transparent way to manage pharmaceutical supply chains. Combining blockchain with AI improves both operational efficiency and customer trust. The system can be extended to other industries like food supply or luxury goods to combat counterfeiting.
 
 1. These contracts manage the lifecycle of medicines, from raw materials to final delivery to customers. Here's a breakdown of each file and its purpose:
