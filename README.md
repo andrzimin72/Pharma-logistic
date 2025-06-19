@@ -1,4 +1,5 @@
 # Pharmacy logistic
+
 This pharmaceutics logistic system offers a decentralized, tamper-proof, and transparent way to manage pharmaceutical supply chains. Combining blockchain with AI improves both operational efficiency and customer trust. The system can be extended to other industries like food supply or luxury goods to combat counterfeiting.
 
 1. These contracts manage the lifecycle of medicines, from raw materials to final delivery to customers. Here's a breakdown of each file and its purpose:
@@ -31,7 +32,7 @@ Key Features: Mappings:
 - MedicinesAtDistributor: Stores list of medicines received;
 - MedicineDtoC: Tracks medicine transfers to customers;
 - MedicineDtoCTxContract: Links to transaction contracts.
-Functions:
+Functions include:
 - medicineRecievedAtDistributor() – Logs when medicine arrives;
 - transferMedicineDtoC() – Initiates transfer to a customer with a new MedicineD_C contract.
 
@@ -41,7 +42,7 @@ Represents the direct transfer of medicine from Distributor to Customer .
 Key Features:
 - tracks entities involved: sender, transporter, receiver;
 - uses an enum packageStatus (atcreator, picked, delivered).
-Functions:
+Functions include:
 -pickDC() – Transporter picks up medicine;
 -receiveDC() – Customer receives medicine;
 -get_addressStatus() – Returns current status of the package.
@@ -76,7 +77,7 @@ Key Features:
 - tracks entities: sender, transporter, receiver;
 - uses an enum packageStatus: atcreator, picked, delivered.
 
-Functions:
+Functions include:
 - pickWD() – Called by transporter to pick up medicine;
 - receiveWD() – Called by distributor upon receipt.
 Updates the main Medicine contract with status changes (sendWtoD() and receivedWtoD()).
@@ -97,7 +98,7 @@ Key Features:
 - status tracking: atCreator, picked, delivered;
 - events: Logs shipment updates for transparency.
 
-Functions:
+Functions include:
 - pickPackage() – Transporter picks raw material;
 - receivedPackage() – Manufacturer receives raw material;
 - emits events like ShippmentUpdate.
@@ -110,7 +111,7 @@ Key Features:
 - allows supplier to create raw material packages using createRawMaterialPackage();
 - stores list of raw materials per supplier.
 
-Functions:
+Functions include:
 - getNoOfPackagesOfSupplier() – Returns number of packages created;
 - getAllPackages() – Returns all package addresses.
 
@@ -156,3 +157,10 @@ Distributor → Customer
 Distributor calls transferMedicineDtoC() to send to customer.
 Transporter picks up via pickDC(), customer receives via receiveDC().
 All steps are logged in the blockchain via events and transaction contracts , ensuring full traceability.
+
+5. Integration with AI & Security
+
+5.1. A Rasa chatbot is integrated for: Medicine ordering, Location setting, Order tracing. The DApp frontend (React + Web3.js) connects to the blockchain for real-time interaction. Smart contracts deployed via Truffle on a local Ganache testnet.
+
+5.2. Role-based access control ensures only authorized users perform actions. Immutable logs via events allow full traceability. Multi-step verification ensures correct product movement between parties. Smart contract inheritance keeps code modular and reusable.
+Solidity smart contract files that, together with previously shared contracts, form a blockchain-based pharmaceutical supply chain system. This system aims to provide traceability, transparency, and anti-counterfeiting features by leveraging Ethereum smart contracts.
