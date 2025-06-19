@@ -1,0 +1,43 @@
+@startuml
+skinparam linetype ortho
+
+package "Pharmacy Logistic" {
+  [SupplyChainBase] as base
+  [RawMaterial] as rawmat
+  [Medicine] as medicine
+  [MedicineW_D] as medwd
+  [MedicineD_C] as meddc
+  [Transactions] as txns
+}
+
+base <|-- rawmat
+base <|-- medicine
+medicine <|-- medwd
+medicine <|-- meddc
+txns -- rawmat
+txns -- medicine
+
+note right of rawmat
+  Tracks raw materials
+  from suppliers to manufacturers
+end note
+
+note right of medicine
+  Core medicine tracking
+  through the supply chain
+end note
+
+note right of medwd
+  Medicine transfer between
+  Wholesaler and Distributor
+end note
+
+note right of meddc
+  Final delivery to Customer
+end note
+
+note left of txns
+  Immutable transaction logs
+  with geolocation and timestamps
+end note
+@enduml
