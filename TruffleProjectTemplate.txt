@@ -1,0 +1,36 @@
+pharmacy-logistic/
+├── contracts/
+│   ├── RawMaterial.sol
+│   ├── Medicine.sol
+│   ├── MedicineW_D.sol
+│   ├── MedicineD_C.sol
+│   ├── Transactions.sol
+│   ├── Supplier.sol
+│   ├── Manufacturer.sol
+│   ├── Wholesaler.sol
+│   ├── Distributor.sol
+│   ├── Customer.sol
+│   ├── Transporter.sol
+│   └── SupplyChain.sol
+│
+├── migrations/
+│   ├── 1_initial_migration.js
+│   └── 2_deploy_contracts.js
+│
+├── test/
+│   ├── TestRawMaterial.js
+│   ├── TestMedicine.js
+│   ├── TestSupplyChain.js
+│   └── TestIntegration.js
+│
+├── truffle-config.js
+├── package.json
+├── README.md
+└── frontend/
+    ├── public/
+    ├── src/
+    │   ├── components/
+    │   ├── App.jsx
+    │   ├── index.js
+    │   └── web3.js
+    └── package.json
