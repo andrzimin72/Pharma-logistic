@@ -1,0 +1,12 @@
+pharmacy-logistic/
+├── contracts/
+├── migrations/
+├── src/
+│   ├── components/
+│   │   ├── MedicineList.jsx
+│   │   └── MedicineForm.jsx
+│   ├── App.jsx
+│   └── index.js
+├── web3.js
+├── truffle-config.js
+└── package.json
