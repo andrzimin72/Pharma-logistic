@@ -66,7 +66,7 @@ Event Logging: Events like ShippmentUpdate help with traceability and can be use
 Access Control: Most functions have require() checks for authorization, ensuring only valid roles can perform actions.
 Transaction Tracking: A new Transactions contract is created per medicine to log movements with details like sender, receiver, timestamp, and location.
 
-4. Solidity smart contract files that together form a blockchain-based pharmaceutical supply chain system, as described in the paper titled "Blockchain and AI in Pharmaceutical Supply Chain". I'll walk you through each file, explain its role, and how they work together to provide traceability, transparency, and anti-counterfeiting capabilities.
+4. Solidity smart contract files that together form a blockchain-based pharmaceutical supply chain system, as described in the paper titled "Blockchain and AI in Pharmaceutical Supply Chain". I'll walk through each file, explain its role, and how they work together to provide traceability, transparency, and anti-counterfeiting capabilities.
 
 4.1. MedicineW_D.sol
 
