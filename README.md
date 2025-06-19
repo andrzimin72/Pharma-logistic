@@ -3,7 +3,9 @@ The pharma logistic system offers a decentralized, tamper-proof, and transparent
 
 1. These contracts manage the lifecycle of medicines, from raw materials to final delivery to customers. Here's a breakdown of each file and its purpose:
 
-1.1.  Medicine.sol. This is the core Medicine contract that defines the structure and behavior of medicine tracking in the supply chain. 
+1.1.  Medicine.sol 
+
+This is the core Medicine contract that defines the structure and behavior of medicine tracking in the supply chain. 
 Key Features:  Tracks medicine properties: description, rawMaterials, manufacturer, wholesaler, distributor, customer, quantity. Uses an enum medicineStatus to track the current state (e.g., at manufacturer, picked for delivery, delivered). Emits events like ShippmentUpdate for transparency.
 Functions include:
 -pickMedicine() – Called by transporter to pick up medicine;
@@ -12,7 +14,9 @@ Functions include:
 -sendDtoC() / receivedDtoC() – Final delivery to customer.
 Deploys a new Transactions contract during creation for logging transaction history.
 
-1.2. Manufacturer.sol. Manages how manufacturers receive raw materials and create medicines.
+1.2. Manufacturer.sol 
+
+Manages how manufacturers receive raw materials and create medicines.
 Key Features: Uses mappings to track:
 -manufacturerRawMaterials: Raw materials owned by a manufacturer;
 -manufacturerMedicines: Medicines created by a manufacturer.
@@ -20,7 +24,8 @@ Functions include:
 -manufacturerReceivedPackage() – Records receipt of raw material;
 -manufacturerCreatesMedicine() – Creates a new medicine using raw materials.
 
-1.3. Distributor.sol. Handles how distributors receive and forward medicines to customers.
+1.3. Distributor.sol 
+Handles how distributors receive and forward medicines to customers.
 Key Features: Mappings:
 - MedicinesAtDistributor: Stores list of medicines received;
 - MedicineDtoC: Tracks medicine transfers to customers;
@@ -30,6 +35,7 @@ Functions:
 - transferMedicineDtoC() – Initiates transfer to a customer with a new MedicineD_C contract.
 
 1.4. MedicineD_C.sol
+
 Represents the direct transfer of medicine from Distributor to Customer .
 Key Features:
 - tracks entities involved: sender, transporter, receiver;
@@ -40,6 +46,7 @@ Functions:
 -get_addressStatus() – Returns current status of the package.
 
 2. System Workflow Summary
+
 Here’s how these contracts interact in the supply chain:
 Supplier → Manufacturer: Raw materials are tracked via RawMaterial.sol (not shown here), and the manufacturer receives them using manufacturerReceivedPackage().
 Manufacturer creates Medicine: Using manufacturerCreatesMedicine(), a new Medicine contract is deployed.
@@ -49,6 +56,7 @@ Distributor → Customer: Managed by transferMedicineDtoC(), which creates a Med
 Transporter involvement: Each transfer requires a transporter to call pickDC() before delivering to the next entity.
 
 3. Suggestions & Observations
+
 Event Logging: Events like ShippmentUpdate help with traceability and can be used in the DApp for real-time updates.
 Access Control: Most functions have require() checks for authorization, ensuring only valid roles can perform actions.
 Transaction Tracking: A new Transactions contract is created per medicine to log movements with details like sender, receiver, timestamp, and location.
@@ -60,6 +68,7 @@ Possible Improvements:
 4. Solidity smart contract files that together form a blockchain-based pharmaceutical supply chain system, as described in the paper titled "Blockchain and AI in Pharmaceutical Supply Chain". I'll walk you through each file, explain its role, and how they work together to provide traceability, transparency, and anti-counterfeiting capabilities.
 
 4.1. MedicineW_D.sol
+
 This contract handles the transfer of medicine from Wholesaler to Distributor.
 Key Features:
 - tracks entities: sender, transporter, receiver;
@@ -70,12 +79,14 @@ Functions:
 Updates the main Medicine contract with status changes (sendWtoD() and receivedWtoD()).
 
 4.2. Migrations.sol
+
 Standard Truffle migration contract used to manage deployment scripts on the Ethereum blockchain.
 Key Features:
 - ensures only the owner can upgrade or set migration status;
 - used internally by Truffle framework; no business logic.
 
 4.3. RawMaterial.sol
+
 Tracks raw materials (e.g., chemical ingredients) used by manufacturers to produce medicines.
 Key Features:
 - status tracking: atCreator, picked, delivered;
@@ -86,6 +97,7 @@ Functions:
 - emits events like ShippmentUpdate.
 
 4.4. Supplier.sol
+
 Manages suppliers who create and register raw material packages.
 Key Features:
 - allows supplier to create raw material packages using createRawMaterialPackage();
@@ -95,6 +107,7 @@ Functions:
 - getAllPackages() – Returns all package addresses.
 
 4.5. SupplyChain.sol
+
 Main contract that inherits and coordinates roles like Supplier, Manufacturer, Wholesaler, Distributor, Customer, and Transporter.
 Key Features:
 - role-based access control using modifiers;
@@ -111,6 +124,7 @@ Function wrappers for each role:
 - customerReceivedMedicine() – Final delivery.
 
 4.6. System Workflow Summary
+
 Here’s how these contracts interact:
 Supplier → Manufacturer
 Supplier creates raw material via createRawMaterialPackage().
